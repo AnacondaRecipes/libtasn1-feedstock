@@ -1,6 +1,6 @@
 {% set name = "libtasn1" %}
-{% set version = "4.14" %}
-{% set sha256 = "9e604ba5c5c8ea403487695c2e407405820d98540d9de884d6e844f9a9c5ba08" %}
+{% set version = "4.16.0" %}
+{% set sha256 = "0e0fb0903839117cb6e3b56e68222771bebf22ad7fc2295a0ed7d576e8d4329d" %}
 
 package:
   name: {{ name|lower }}
@@ -10,15 +10,21 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - fix-clang-test-failures.patch       # [osx]
 
 build:
   number: 0
   # seems Windows with MSVC not currently supported
   skip: True  # [win]
+  run_exports:
+    # Nice, stable ABI: https://abi-laboratory.pro/?view=timeline&l=libtasn1
+    - {{ pin_subpackage(name, max_pin='x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - make    # [unix]
   host:
   run:
 
@@ -45,3 +51,4 @@ extra:
     - gillins
     - ceholden
     - ocefpaf
+    - chenghlee
