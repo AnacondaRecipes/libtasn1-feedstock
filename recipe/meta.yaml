@@ -10,6 +10,7 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  # 5/19/2021: Disable the patch. It was fixed https://gitlab.com/gnutls/libtasn1/-/commit/593609388b035bf695ffe10ef3ef2fa261026f6e
   # patches:
   # - fix-clang-test-failures.patch       # [osx]
 
