@@ -10,8 +10,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - fix-clang-test-failures.patch       # [osx]
+  # patches:
+  # - fix-clang-test-failures.patch       # [osx]
 
 build:
   number: 0
