@@ -26,6 +26,7 @@ requirements:
     - {{ compiler('c') }}
     - make    # [unix]
     - libtool  # [unix]
+    - patch    # [osx]
   host:
   run:
 
