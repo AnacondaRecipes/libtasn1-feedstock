@@ -3,12 +3,28 @@
 # Get an updated config.sub and config.guess
 cp -r ${BUILD_PREFIX}/share/libtool/build-aux/config.* ./build-aux
 
-./configure --prefix=$PREFIX \
-    --disable-static    \
-    --enable-shared     \
-    --disable-gtk-doc
+# ./configure --prefix=$PREFIX \
+#     --disable-static    \
+#     --enable-shared     \
+#     --disable-doc       \
+#     --disable-silent-rules
 
-make -j $CPU_COUNT
+./configure \
+      --prefix="${PREFIX}" \
+      --host="${HOST}" \
+      --build="${BUILD}" \
+      --disable-static \
+      --enable-shared \
+      --disable-doc \
+      --disable-gtk-doc \
+      --disable-gtk-doc-html \
+      --disable-gtk-doc-pdf \
+      --disable-valgrind-tests \
+      --disable-dependency-tracking \
+      --disable-silent-rules \
+      --enable-year2038
+
+make -j ${CPU_COUNT}
 
 make install
 
