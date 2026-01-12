@@ -1,5 +1,5 @@
 {% set name = "libtasn1" %}
-{% set version = "4.20.0" %}
+{% set version = "4.21.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://ftpmirror.gnu.org/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 92e0e3bd4c02d4aeee76036b2ddd83f0c732ba4cda5cb71d583272b23587a76c
+  sha256: 1d8a444a223cc5464240777346e125de51d8e6abf0b8bac742ac84609167dc87
 
 build:
   number: 0
